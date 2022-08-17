@@ -54,6 +54,11 @@ public class PatientTreatmentController {
 	
 	@Autowired
 	private JmsTemplate jmsTemplate;
+	
+	@GetMapping("/")
+	public String home() {
+		return "In HOME";
+	}
 
 
 	@ApiOperation("To retrive all patient treatment information.")
