@@ -1,0 +1,18 @@
+ #For token Generation
+ http://localhost:5555/patientTretmentInfo/authenticate
+ {
+ "username" : "admin",
+ "password" : "password"
+}
+
+#Register Patient Info
+http://localhost:5555/patientTretmentInfo/save
+{
+        "id": 12,
+        "reason": "paralysis",
+        "status": "uncured",
+        "prescription": "nooo",
+        "billNumber": 420,
+        "treatmentType": "static"
+ }
+ 

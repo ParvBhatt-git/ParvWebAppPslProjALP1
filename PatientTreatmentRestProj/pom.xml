@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.psl</groupId>
+	<artifactId>PatientTreatmentRestProj</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>PatientTreatmentRestProj</name>
+	<description>Demo project for Spring Rest</description>
+	<properties>
+		<java.version>11</java.version>
+
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.source>11</maven.compiler.source>
+  <maven.compiler.target>11</maven.compiler.target>
+
+  <azure.functions.java.library.version>1.4.2</azure.functions.java.library.version>
+  <azure.functions.maven.plugin.version>1.13.0</azure.functions.maven.plugin.version>
+
+  <!-- customize those two properties. The functionAppName should be unique across Azure -->
+  <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
+  <functionAppName>my-spring-function</functionAppName>
+
+  <functionAppRegion>westeurope</functionAppRegion>
+  <stagingDirectory>$PatientTreatmentRestProj/azure-functions/$HttpTriggerFunction</stagingDirectory>
+  <start-class>com.psl.azure</start-class>
+</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>		
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		    <version>0.9.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>2.9.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>2.9.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>1.2.3</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        
+       
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-servicebus</artifactId>
+    <version>7.10.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
+    <version>4.3.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype -->
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-functions-archetype</artifactId>
+    <version>1.48</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/io.micronaut.azure/micronaut-azure-function-http -->
+<dependency>
+    <groupId>io.micronaut.azure</groupId>
+    <artifactId>micronaut-azure-function-http</artifactId>
+    <version>3.3.0</version>
+    
+    <exclusions>
+    <exclusion>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+    </exclusion>
+</exclusions> 
+</dependency>
+
+
+
+	</dependencies>
+	
+	
+	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
